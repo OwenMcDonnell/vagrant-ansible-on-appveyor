@@ -3,7 +3,7 @@ image: Visual Studio 2017
 
 # RDP Debugging
 init:
-- bcdedit
+#- bcdedit
 #- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 #on_finish:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
@@ -15,7 +15,7 @@ init:
 
 install:
 # Disable Hyper-V
-#- dism.exe /Online /Disable-Feature:Microsoft-Hyper-V /Quiet
+- dism.exe /Online /Disable-Feature /FeatureName:Microsoft-Hyper-V /Quiet
 - ps: mkdir C:\Users\appveyor\.vagrant.d | Out-Null
   # Disable chocolatey´s verbose download output
 - choco feature disable --name showDownloadProgress
