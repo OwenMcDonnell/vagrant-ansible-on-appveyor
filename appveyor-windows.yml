@@ -15,7 +15,7 @@ init:
 
 install:
 # Disable Hyper-V
-- dism.exe /Online /Disable-Feature:Microsoft-Hyper-V /Quiet
+- bcdedit /set hypervisorlaunchtype off
 - ps: Start-sleep -s 10
 - ps: Restart-computer
 - ps: start-sleep -s 10
