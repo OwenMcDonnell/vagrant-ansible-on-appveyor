@@ -15,7 +15,10 @@ init:
 
 install:
 # Disable Hyper-V
-- dism.exe /Online /Disable-Feature /FeatureName:Microsoft-Hyper-V /Quiet
+- dism.exe /Online /Disable-Feature:Microsoft-Hyper-V /Quiet
+- ps: Start-sleep -s 10
+- ps: Restart-computer
+- ps: start-sleep -s 10
 - ps: mkdir C:\Users\appveyor\.vagrant.d | Out-Null
   # Disable chocolatey´s verbose download output
 - choco feature disable --name showDownloadProgress
