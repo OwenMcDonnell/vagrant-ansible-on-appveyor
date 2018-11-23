@@ -10,12 +10,12 @@ Vagrant.configure("2") do |config|
     config.vm.synced_folder ".", "/vagrant", disabled: true
     config.ssh.insert_key = false
     config.vm.provider :virtualbox do |vb|
-#        vb.name = 'ubuntu'
- #       vb.memory = 128
-  #      vb.cpus = 1
+        vb.name = 'ubuntu'
+        vb.memory = 128
+        vb.cpus = 1
         vb.gui = true
         # Vagrant needs this config on AppVeyor to spin up correctly (see https://help.appveyor.com/discussions/problems/1247-vagrant-not-working-inside-appveyor)
         vb.customize ["modifyvm", :id, "--nictype1", "Am79C973"]
-        vb.customize ["modifyvm", :id, "--memory", "128"]
+
     end
 end
