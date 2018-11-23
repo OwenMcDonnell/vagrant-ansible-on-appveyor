@@ -9,8 +9,8 @@ Vagrant.configure("2") do |config|
     # Prevent SharedFoldersEnableSymlinksCreate errors
     config.vm.synced_folder ".", "/vagrant", disabled: true
     config.ssh.insert_key = false
-    config.ssh.password = "vagrant"
-    config.ssh.username = "vagrant"
+    #config.ssh.password = "vagrant"
+    #config.ssh.username = "vagrant"
     config.vm.provider :virtualbox do |vb|
         vb.name = 'ubuntu'
         vb.memory = 128
